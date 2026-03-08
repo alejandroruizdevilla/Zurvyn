@@ -2,15 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Zurvyn - Username Generator</title>
+<title>Zurvyn Username Generator – 1M+ Unique Username Ideas</title>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="description" content="Generate unique usernames instantly. Choose from gamer, tech, aesthetic, funny, fantasy styles and more.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Zurvyn - Username Generator">
 <meta property="og:description" content="Generate unique usernames instantly for any platform.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Zurvyn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zurvyn - Username Generator">
+<meta name="twitter:description" content="Generate unique usernames instantly for any platform.">
+<meta name="theme-color" content="#0a0a0f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ff6a3d'/%3E%3Cstop offset='50%25' stop-color='%23f5b432'/%3E%3Cstop offset='100%25' stop-color='%2338bdf8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23111'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='system-ui' font-weight='900' font-size='22' fill='url(%23g)'%3EZ%3C/text%3E%3C/svg%3E">
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Zurvyn Username Generator","applicationCategory":"Utility","operatingSystem":"All","description":"Generate millions of unique usernames instantly for gaming, social media and developers."}
+</script>
 <style>
 
 :root{
@@ -945,6 +954,53 @@ border-color:rgba(255,106,61,0.4);
 box-shadow:0 0 0 2px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) inset;
 }
 
+/* ---- Search box ---- */
+.search-box{
+display:flex;
+gap:8px;
+margin-bottom:8px;
+position:relative;
+z-index:3;
+}
+
+.search-box input[type="text"]{
+flex:1;
+padding:10px 18px;
+border:0.5px solid var(--glass-border);
+border-radius:100px;
+font-size:13px;
+font-weight:500;
+background:var(--glass);
+backdrop-filter:blur(20px) saturate(1.5);
+-webkit-backdrop-filter:blur(20px) saturate(1.5);
+color:var(--text);
+box-shadow:0 1px 3px rgba(0,0,0,0.1),0 0.5px 0 var(--glass-highlight) inset;
+outline:none;
+transition:all 0.2s;
+}
+
+.search-box input[type="text"]::placeholder{color:var(--text2)}
+.search-box input[type="text"]:focus{
+border-color:rgba(255,106,61,0.4);
+box-shadow:0 0 0 2px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) inset;
+}
+
+/* ---- Score bar ---- */
+.score-bar{
+height:3px;
+border-radius:3px;
+margin-top:4px;
+transition:width 0.3s ease;
+}
+
+/* ---- Random button ---- */
+.random-btn{
+background:rgba(168,85,247,0.12);
+border-color:rgba(168,85,247,0.25);
+color:#c084fc;
+}
+.random-btn:hover{background:rgba(168,85,247,0.22);box-shadow:0 4px 20px rgba(168,85,247,0.12),0 0.5px 0 var(--glass-highlight) inset}
+
 /* ---- Keyboard hint ---- */
 .hint{
 text-align:center;
@@ -965,6 +1021,142 @@ font-size:11px;
 color:#ff8c5a;
 }
 
+/* 1. Copy pulse animation */
+@keyframes copyPulse{
+0%{box-shadow:0 0 0 0 rgba(45,212,191,0.4)}
+70%{box-shadow:0 0 0 10px rgba(45,212,191,0)}
+100%{box-shadow:0 0 0 0 rgba(45,212,191,0)}
+}
+.row.copy-pulse{animation:copyPulse 0.5s ease}
+
+/* 2. Hover glow on username text */
+.username-text{
+transition:text-shadow 0.2s ease, color 0.2s ease;
+}
+.username-text:hover{
+text-shadow:0 0 12px rgba(255,106,61,0.5),0 0 24px rgba(255,106,61,0.2);
+}
+
+/* 3. Generate button ripple */
+.generate{position:relative;overflow:hidden}
+.ripple{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.35);
+transform:scale(0);
+animation:rippleAnim 0.6s ease-out;
+pointer-events:none;
+}
+@keyframes rippleAnim{
+to{transform:scale(4);opacity:0}
+}
+
+/* 4. Typing animation */
+@keyframes typeIn{
+from{width:0;opacity:0}
+to{width:100%;opacity:1}
+}
+.username-text.typing{
+display:inline-block;
+overflow:hidden;
+white-space:nowrap;
+animation:typeIn 0.4s steps(12,end) forwards;
+}
+
+/* 5. Heart animation on save */
+@keyframes heartPop{
+0%{transform:scale(1)}
+30%{transform:scale(1.4)}
+60%{transform:scale(0.9)}
+100%{transform:scale(1)}
+}
+.heart-pop{animation:heartPop 0.4s ease}
+
+/* 6. Floating container */
+@keyframes containerFloat{
+0%{transform:translateY(0px)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0px)}
+}
+.container{animation:containerFloat 6s ease-in-out infinite}
+
+/* 7. Smart suggestions dropdown */
+.suggestions{
+position:absolute;
+top:100%;
+left:50%;
+transform:translateX(-50%);
+width:280px;
+max-height:180px;
+overflow-y:auto;
+background:var(--glass-strong);
+backdrop-filter:blur(40px) saturate(1.5);
+-webkit-backdrop-filter:blur(40px) saturate(1.5);
+border:0.5px solid var(--glass-border);
+border-radius:14px;
+padding:6px;
+margin-top:6px;
+z-index:10;
+box-shadow:0 8px 32px rgba(0,0,0,0.2);
+}
+.suggestion-item{
+padding:8px 14px;
+border-radius:10px;
+font-size:13px;
+color:var(--text);
+cursor:pointer;
+transition:background 0.15s;
+}
+.suggestion-item:hover{
+background:var(--row-hover);
+}
+
+/* 8. Smooth theme transition */
+body,body::before,.container::before,.specular,
+button,select,input,.row,.score,.username-text,
+.section-title,.favorites,.trending,.rate-section,
+.hint,.hint kbd,.counter,.search-box input,.custom-prompt input{
+transition:all 0.5s ease;
+}
+
+/* 9. TOP badge */
+.top-badge{
+display:inline-block;
+font-size:9px;
+font-weight:700;
+padding:2px 6px;
+border-radius:6px;
+background:linear-gradient(135deg,#ff6a3d,#f5b432);
+color:#fff;
+margin-left:6px;
+letter-spacing:0.5px;
+vertical-align:middle;
+text-shadow:0 1px 2px rgba(0,0,0,0.2);
+animation:badgeGlow 2s ease-in-out infinite alternate;
+}
+@keyframes badgeGlow{
+0%{box-shadow:0 0 4px rgba(255,106,61,0.3)}
+100%{box-shadow:0 0 12px rgba(255,106,61,0.6)}
+}
+
+/* Share button */
+.share-btn{
+background:rgba(56,189,248,0.1);
+border-color:rgba(56,189,248,0.2);
+color:#38bdf8;
+}
+
+/* 10. Lucky button */
+.lucky-btn{
+background:linear-gradient(135deg,rgba(255,106,61,0.15),rgba(245,180,50,0.15));
+border-color:rgba(255,106,61,0.3);
+color:#ff8c5a;
+}
+.lucky-btn:hover{
+background:linear-gradient(135deg,rgba(255,106,61,0.25),rgba(245,180,50,0.25));
+box-shadow:0 4px 20px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) inset;
+}
+
 </style>
 </head>
 
@@ -978,7 +1170,7 @@ color:#ff8c5a;
 
 <header>
 <h1>Zurvyn</h1>
-<p class="subtitle">1,000,000+ unique username combos</p>
+<p class="subtitle">100,000,000+ unique username combos</p>
 </header>
 
 <div class="controls">
@@ -993,6 +1185,12 @@ color:#ff8c5a;
 <option value="instagram">Instagram</option>
 <option value="tiktok">TikTok</option>
 <option value="developer">Developer</option>
+<option value="japanese">Japanese</option>
+<option value="nordic">Nordic</option>
+<option value="latin">Latin</option>
+<option value="minecraft">Minecraft</option>
+<option value="fortnite">Fortnite</option>
+<option value="roblox">Roblox</option>
 </select>
 
 <select id="separator" aria-label="Separator">
@@ -1008,9 +1206,11 @@ color:#ff8c5a;
 <option value="500">500</option>
 <option value="1000">1000</option>
 </select>
-<button class="generate" onclick="generate()" aria-label="Generate usernames">Generate <span class="counter" id="counter">0</span></button>
+<button class="generate" onclick="generate(event)" aria-label="Generate usernames">Generate <span class="counter" id="counter">0</span></button>
 <button class="shuffle" onclick="shuffleList()" aria-label="Shuffle list">Shuffle</button>
 <button class="clear" onclick="clearList()" aria-label="Clear list">Clear</button>
+<button class="random-btn" onclick="randomOne()" aria-label="Random username">Random</button>
+<button class="lucky-btn" onclick="luckyOne()" aria-label="Lucky username">Lucky</button>
 <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">Toggle Theme</button>
 
 </div>
@@ -1039,6 +1239,10 @@ color:#ff8c5a;
 <label>
 <button class="export-btn" onclick="copyComma()" aria-label="Copy comma separated">Copy Commas</button>
 </label>
+</div>
+
+<div class="search-box">
+<input type="text" id="searchBox" placeholder="Search usernames..." oninput="filterUsernames()" aria-label="Search generated usernames">
 </div>
 
 <div class="usernames" id="list">
@@ -1074,7 +1278,7 @@ color:#ff8c5a;
 </div>
 
 <div class="hint">
-<kbd>Space</kbd> generate &middot; <kbd>C</kbd> clear &middot; <kbd>T</kbd> theme &middot; <kbd>E</kbd> export TXT &middot; <kbd>D</kbd> export CSV
+<kbd>Space</kbd> generate &middot; <kbd>R</kbd> random &middot; <kbd>L</kbd> lucky &middot; <kbd>C</kbd> clear &middot; <kbd>T</kbd> theme &middot; <kbd>E</kbd> export TXT &middot; <kbd>D</kbd> export CSV
 </div>
 
 </div>
@@ -1131,6 +1335,39 @@ maxLen:24
 developer:{
 adj:["Code","Dev","Root","Sudo","Git","Bash","Null","Void","Heap","Fork","Init","Exec","Lint","Mock","Test","Ship","Push","Pull","Merge","Debug","Build","Deploy","Patch","Hack","Open"],
 noun:["Ninja","Guru","Wizard","Hacker","Monk","Sensei","Jedi","Nerd","Geek","Bot","Admin","Ops","Craft","Smith","Chief","Lord","Master","Sage","Pilot","Agent","Rebel","Scout","Tank","Hero","Pro"]
+},
+
+japanese:{
+adj:["Kaze","Yami","Hoshi","Tsuki","Ryu","Aki","Sora","Kuro","Shin","Ren","Hana","Yuki","Tora","Mizu","Kumo","Nami","Saku","Aoi","Ichi","Hiro","Kai","Masa","Taka","Nori","Shiro"],
+noun:["Samurai","Ronin","Sensei","Oni","Kitsune","Shogun","Katana","Tenshi","Shinobi","Sakura","Tanuki","Genji","Hanzo","Akira","Raijin","Fujin","Tatsu","Yasha","Kage","Kuma","Tengu","Kami","Miko","Dojo","Torii"]
+},
+
+nordic:{
+adj:["Frost","Storm","Iron","Stone","Ash","Blaze","Rune","Elder","Dark","Wild","Grim","Cold","Fell","Stark","Dire","Dread","Blood","Wolf","Bear","Ice","Grey","Pale","Red","Thunder","Winter"],
+noun:["Viking","Jarl","Odin","Thor","Loki","Fenrir","Ragnar","Valkyrie","Skald","Draugr","Bjorn","Freya","Sigurd","Berserker","Einherjar","Jotun","Norns","Huginn","Muninn","Asgard","Mjolnir","Ulfr","Volva","Thane","Aegis"]
+},
+
+latin:{
+adj:["Nova","Rex","Lux","Pax","Vox","Magna","Alta","Prima","Vera","Astra","Ignis","Umbra","Aurum","Nox","Vita","Fero","Apex","Lex","Opus","Deus","Acer","Fortis","Felix","Sacer","Aether"],
+noun:["Phoenix","Legion","Consul","Praetor","Centurion","Gladius","Imperator","Maximus","Dominus","Victor","Atlas","Titan","Nexus","Vortex","Cipher","Draco","Lupus","Corvus","Aquila","Virtus","Tempus","Fatum","Caelum","Arcanum","Solaris"]
+},
+
+minecraft:{
+adj:["Block","Craft","Mine","Pixel","Ender","Nether","Red","Stone","Iron","Gold","Diamond","Emerald","Obsidian","Creep","Frost","Blaze","Wither","Deep","Dark","Slime","Cave","Sky","Over","Mossy","Ancient"],
+noun:["Miner","Crafter","Steve","Builder","Enderman","Creeper","Golem","Warden","Zombie","Skeleton","Blaze","Ghast","Villager","Pillager","Drowner","Digger","Explorer","Enchanter","Brewer","Farmer","Archer","Knight","King","Witch","Slayer"],
+maxLen:16
+},
+
+fortnite:{
+adj:["Battle","Storm","Victory","Epic","Loot","Sniper","Royal","Swift","Toxic","Mega","Hyper","Stealth","Clutch","Cranky","Sweaty","Cracked","Goated","Tilted","Shifty","Lucky","Lazy","Salty","Fatal","Dusty","Greasy"],
+noun:["Royale","Llama","Squad","Default","Sweat","Tryhard","Eliminator","Builder","Sniper","Dropper","Rusher","Camper","Flopper","Rifter","Shotty","Pumper","Cranker","Victor","Flicker","Boomer","Peely","Reaper","Raven","Skull","Ghost"],
+maxLen:16
+},
+
+roblox:{
+adj:["Blox","Mega","Super","Epic","Cool","Pro","Noob","Ultra","Hyper","Power","Royal","Speed","Turbo","Crazy","Happy","Magic","Fire","Ice","Dark","Bright","Gold","Star","Neon","Pixel","Robo"],
+noun:["Player","Builder","Gamer","Master","King","Queen","Lord","Boss","Hero","Ninja","Warrior","Knight","Wizard","Racer","Pilot","Coder","Shark","Tiger","Dragon","Phoenix","Legend","Champion","Titan","Wolf","Storm"],
+maxLen:20
 }
 
 };
@@ -1138,7 +1375,8 @@ noun:["Ninja","Guru","Wizard","Hacker","Monk","Sensei","Jedi","Nerd","Geek","Bot
 let totalGenerated=0;
 let includeNumbers=true;
 let allUsernames=[];
-const MAX_TOTAL=5000;
+let usernameSet=new Set();
+const MAX_TOTAL=3000;
 
 const listEl=document.getElementById("list");
 const counterEl=document.getElementById("counter");
@@ -1190,11 +1428,25 @@ if(s>=4) return "score-mid";
 return "score-low";
 }
 
-function generate(){
+function generate(e){
 
 if(allUsernames.length>=MAX_TOTAL){
 showToast("Max "+MAX_TOTAL+" reached. Clear first!");
 return;
+}
+
+// Ripple effect on generate button
+if(e&&e.currentTarget){
+let btn=e.currentTarget;
+let ripple=document.createElement("span");
+ripple.className="ripple";
+let rect=btn.getBoundingClientRect();
+let size=Math.max(rect.width,rect.height);
+ripple.style.width=ripple.style.height=size+"px";
+ripple.style.left=(e.clientX-rect.left-size/2)+"px";
+ripple.style.top=(e.clientY-rect.top-size/2)+"px";
+btn.appendChild(ripple);
+setTimeout(function(){ripple.remove()},600);
 }
 
 // Show loading overlay
@@ -1245,6 +1497,8 @@ if(username.length>maxLen){
 username=username.substring(0,maxLen);
 }
 
+if(usernameSet.has(username)){i--;continue;}
+usernameSet.add(username);
 allUsernames.push(username);
 
 let s=scoreUsername(username);
@@ -1261,11 +1515,26 @@ scoreSpan.className="score "+scoreClass(s);
 scoreSpan.textContent=s+"/10";
 
 let nameSpan=document.createElement("span");
-nameSpan.className="username-text";
+nameSpan.className="username-text"+(i<30?" typing":"");
 nameSpan.textContent=username;
+nameSpan.style.cursor="pointer";
+nameSpan.addEventListener("click",function(){
+navigator.clipboard.writeText(username);
+showToast("Copied: "+username);
+row.classList.remove("copy-pulse");
+void row.offsetWidth;
+row.classList.add("copy-pulse");
+});
 
 leftDiv.appendChild(scoreSpan);
 leftDiv.appendChild(nameSpan);
+
+if(s>=9){
+let badge=document.createElement("span");
+badge.className="top-badge";
+badge.textContent="TOP";
+leftDiv.appendChild(badge);
+}
 
 let actionsDiv=document.createElement("div");
 actionsDiv.className="actions";
@@ -1280,14 +1549,21 @@ copyBtn.textContent="Copied!";
 setTimeout(function(){copyBtn.textContent="Copy"},1200);
 showToast("Copied: "+username);
 spawnConfetti(e.clientX,e.clientY);
+row.classList.remove("copy-pulse");
+void row.offsetWidth;
+row.classList.add("copy-pulse");
 });
 
 let saveBtn=document.createElement("button");
 saveBtn.className="save-btn";
-saveBtn.textContent="Save";
+saveBtn.textContent="\u2661 Save";
 saveBtn.setAttribute("aria-label","Save "+username);
 saveBtn.addEventListener("click",function(){
 save(username,saveBtn);
+saveBtn.classList.remove("heart-pop");
+void saveBtn.offsetWidth;
+saveBtn.classList.add("heart-pop");
+saveBtn.textContent="\u2764\uFE0F Saved!";
 });
 
 let checkBtn=document.createElement("button");
@@ -1298,12 +1574,42 @@ checkBtn.addEventListener("click",function(){
 check(username);
 });
 
+let shareBtn=document.createElement("button");
+shareBtn.className="share-btn";
+shareBtn.textContent="Share";
+shareBtn.setAttribute("aria-label","Share "+username);
+shareBtn.addEventListener("click",function(){
+let url=location.origin+location.pathname+"?u="+encodeURIComponent(username);
+navigator.clipboard.writeText(url);
+shareBtn.textContent="Link copied!";
+setTimeout(function(){shareBtn.textContent="Share"},1200);
+showToast("Share link copied!");
+});
+
 actionsDiv.appendChild(copyBtn);
 actionsDiv.appendChild(saveBtn);
 actionsDiv.appendChild(checkBtn);
+actionsDiv.appendChild(shareBtn);
 
-row.appendChild(leftDiv);
-row.appendChild(actionsDiv);
+let bar=document.createElement("div");
+bar.className="score-bar";
+bar.style.width=(s*10)+"%";
+bar.style.background=s>=7?"#2dd4bf":s>=4?"#fbbf24":"#f87171";
+
+let rowWrap=document.createElement("div");
+rowWrap.style.flex="1";
+rowWrap.style.minWidth="0";
+
+let topRow=document.createElement("div");
+topRow.style.display="flex";
+topRow.style.justifyContent="space-between";
+topRow.style.alignItems="center";
+
+topRow.appendChild(leftDiv);
+topRow.appendChild(actionsDiv);
+rowWrap.appendChild(topRow);
+rowWrap.appendChild(bar);
+row.appendChild(rowWrap);
 
 frag.appendChild(row);
 count++;
@@ -1331,6 +1637,44 @@ void counterEl.offsetWidth;
 counterEl.classList.add("pop");
 }
 
+function filterUsernames(){
+let q=document.getElementById("searchBox").value.toLowerCase();
+document.querySelectorAll(".row").forEach(function(r){
+let name=r.querySelector(".username-text");
+if(name){
+r.style.display=name.textContent.toLowerCase().includes(q)?"":"none";
+}
+});
+}
+
+function randomOne(){
+let mode=document.getElementById("mode").value;
+let sep=document.getElementById("separator").value;
+let adj=random(styles[mode].adj);
+let noun=random(styles[mode].noun);
+let num=includeNumbers?Math.floor(Math.random()*9999):"";
+let customWord=document.getElementById("customWord").value.trim();
+let prefix=document.getElementById("prefix").value.trim();
+let suffix=document.getElementById("suffix").value.trim();
+let username;
+if(customWord){
+let r=Math.random();
+if(r<0.33) username=customWord+sep+noun+(num!==""?(sep+num):"");
+else if(r<0.66) username=adj+sep+customWord+(num!==""?(sep+num):"");
+else username=customWord+sep+adj+(num!==""?(sep+num):"");
+}else{
+username=adj+sep+noun+(num!==""?(sep+num):"");
+}
+if(prefix) username=prefix+sep+username;
+if(suffix) username=username+sep+suffix;
+let platformMax=styles[mode].maxLen||999;
+let userMaxLen=parseInt(document.getElementById("maxLen").value)||20;
+if(username.length>Math.min(userMaxLen,platformMax)) username=username.substring(0,Math.min(userMaxLen,platformMax));
+navigator.clipboard.writeText(username);
+showToast("Random: "+username+" (copied!)");
+spawnConfetti(window.innerWidth/2,window.innerHeight/2);
+}
+
 function shuffleList(){
 let rows=Array.from(listEl.querySelectorAll(".row"));
 if(rows.length===0){
@@ -1339,9 +1683,9 @@ return;
 }
 for(let i=rows.length-1;i>0;i--){
 let j=Math.floor(Math.random()*(i+1));
-listEl.appendChild(rows[j]);
 [rows[i],rows[j]]=[rows[j],rows[i]];
 }
+rows.forEach(function(r){listEl.appendChild(r)});
 showToast("Shuffled!");
 }
 
@@ -1421,6 +1765,7 @@ function clearList(){
 listEl.innerHTML='<div class="empty-state"><div class="icon">&#127922;</div><p>Pick a style and hit <strong>Generate</strong><br>or press <strong>Space</strong> to get rolling!</p></div>';
 totalGenerated=0;
 allUsernames=[];
+usernameSet.clear();
 updateCounter();
 showToast("Fresh start!");
 }
@@ -1444,7 +1789,7 @@ return;
 // Auto-detect collection from current mode
 let mode=document.getElementById("mode").value;
 let col="all";
-if(["gamer","fantasy"].includes(mode)) col="gaming";
+if(["gamer","fantasy","minecraft","fortnite","roblox"].includes(mode)) col="gaming";
 else if(["instagram","tiktok","aesthetic"].includes(mode)) col="social";
 else if(["tech","developer"].includes(mode)) col="dev";
 fav.push({name:name,col:col});
@@ -1590,12 +1935,74 @@ if(t==="true") document.body.classList.add("light");
 
 }
 
+// Lucky button — random style + random username, one click
+function luckyOne(){
+let modeKeys=Object.keys(styles);
+let luckyMode=modeKeys[Math.floor(Math.random()*modeKeys.length)];
+let sep=["","_","-","."][Math.floor(Math.random()*4)];
+let adj=random(styles[luckyMode].adj);
+let noun=random(styles[luckyMode].noun);
+let num=Math.random()>0.4?Math.floor(Math.random()*999):"";
+let username=adj+sep+noun+(num!==""?(sep+num):"");
+let platformMax=styles[luckyMode].maxLen||20;
+if(username.length>platformMax) username=username.substring(0,platformMax);
+navigator.clipboard.writeText(username);
+showToast("Lucky ["+luckyMode+"]: "+username+" (copied!)");
+spawnConfetti(window.innerWidth/2,window.innerHeight/2);
+}
+
+// Smart suggestions on customWord input
+(function(){
+let customInput=document.getElementById("customWord");
+let sugBox=null;
+function removeSuggestions(){if(sugBox){sugBox.remove();sugBox=null;}}
+customInput.addEventListener("input",function(){
+removeSuggestions();
+let word=customInput.value.trim();
+if(word.length<2) return;
+let mode=document.getElementById("mode").value;
+let sep=document.getElementById("separator").value;
+let suggestions=[];
+let s=styles[mode];
+for(let i=0;i<5;i++){
+let adj=random(s.adj);
+let noun=random(s.noun);
+let r=Math.random();
+let u;
+if(r<0.33) u=word+sep+noun;
+else if(r<0.66) u=adj+sep+word;
+else u=word+sep+adj;
+if(suggestions.indexOf(u)===-1) suggestions.push(u);
+}
+sugBox=document.createElement("div");
+sugBox.className="suggestions";
+suggestions.forEach(function(sug){
+let item=document.createElement("div");
+item.className="suggestion-item";
+item.textContent=sug;
+item.addEventListener("click",function(){
+navigator.clipboard.writeText(sug);
+showToast("Copied: "+sug);
+removeSuggestions();
+});
+sugBox.appendChild(item);
+});
+customInput.parentElement.appendChild(sugBox);
+});
+customInput.addEventListener("blur",function(){setTimeout(removeSuggestions,200)});
+document.addEventListener("click",function(e){
+if(sugBox&&!sugBox.contains(e.target)&&e.target!==customInput) removeSuggestions();
+});
+})();
+
 // Keyboard shortcuts
 document.addEventListener("keydown",function(e){
 if(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA"||e.target.tagName==="SELECT") return;
 if(e.code==="Space"){e.preventDefault();generate()}
 if(e.key==="c"||e.key==="C"){if(!e.metaKey&&!e.ctrlKey)clearList()}
 if(e.key==="t"||e.key==="T")toggleTheme();
+if(e.key==="r"||e.key==="R")randomOne();
+if(e.key==="l"||e.key==="L")luckyOne();
 if(e.key==="e"||e.key==="E")exportTXT();
 if(e.key==="d"||e.key==="D")exportCSV();
 });
@@ -1704,8 +2111,37 @@ box.appendChild(tag);
 }
 renderTrending();
 
+// Auto-save session
+window.addEventListener("beforeunload",function(){
+localStorage.setItem("lastUsernames",JSON.stringify(allUsernames));
+});
+
+// Restore last session
+let savedSession=JSON.parse(localStorage.getItem("lastUsernames")||"[]");
+if(savedSession.length>0){
+allUsernames=savedSession;
+usernameSet=new Set(savedSession);
+totalGenerated=savedSession.length;
+updateCounter();
+}
+
 renderFav();
 loadTheme();
+
+// Handle shared username via ?u= parameter
+(function(){
+let params=new URLSearchParams(location.search);
+let shared=params.get("u");
+if(shared){
+navigator.clipboard.writeText(shared).then(function(){
+showToast("Shared username: "+shared+" (copied!)");
+}).catch(function(){
+showToast("Shared username: "+shared);
+});
+// Pre-fill the rate input so they can rate it
+document.getElementById("rateInput").value=shared;
+}
+})();
 
 </script>
 
