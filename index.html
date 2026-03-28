@@ -1157,6 +1157,200 @@ background:linear-gradient(135deg,rgba(255,106,61,0.25),rgba(245,180,50,0.25));
 box-shadow:0 4px 20px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) inset;
 }
 
+/* Mashup button */
+.mashup-btn{
+background:linear-gradient(135deg,rgba(168,85,247,0.15),rgba(56,189,248,0.15));
+border-color:rgba(168,85,247,0.3);
+color:#c084fc;
+}
+.mashup-btn:hover{
+background:linear-gradient(135deg,rgba(168,85,247,0.25),rgba(56,189,248,0.25));
+box-shadow:0 4px 20px rgba(168,85,247,0.15),0 0.5px 0 var(--glass-highlight) inset;
+}
+
+/* Battle button */
+.battle-btn{
+background:linear-gradient(135deg,rgba(239,68,68,0.15),rgba(245,180,50,0.15));
+border-color:rgba(239,68,68,0.3);
+color:#f87171;
+}
+.battle-btn:hover{
+background:linear-gradient(135deg,rgba(239,68,68,0.25),rgba(245,180,50,0.25));
+box-shadow:0 4px 20px rgba(239,68,68,0.15),0 0.5px 0 var(--glass-highlight) inset;
+}
+
+/* Battle modal */
+.battle-modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:20;
+animation:fadeIn 0.2s ease;
+}
+
+.battle-panel{
+position:relative;
+border-radius:24px;
+padding:32px;
+width:500px;
+max-width:92vw;
+overflow:hidden;
+color:var(--text);
+text-align:center;
+}
+
+.battle-panel::before{
+content:'';
+position:absolute;
+inset:0;
+border-radius:24px;
+background:var(--glass-strong);
+backdrop-filter:blur(60px) saturate(1.8) brightness(1.1);
+-webkit-backdrop-filter:blur(60px) saturate(1.8) brightness(1.1);
+border:0.5px solid var(--glass-border);
+box-shadow:0 24px 64px rgba(0,0,0,0.3),0 0.5px 0 var(--glass-highlight) inset;
+z-index:-1;
+}
+
+.battle-panel h3{
+margin:0 0 8px;
+font-size:20px;
+font-weight:700;
+background:linear-gradient(135deg,#f87171,#fbbf24);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+}
+
+.battle-vs{
+font-size:12px;
+color:var(--text2);
+margin-bottom:20px;
+}
+
+.battle-cards{
+display:flex;
+gap:16px;
+justify-content:center;
+margin-bottom:20px;
+}
+
+.battle-card{
+flex:1;
+padding:20px 16px;
+border-radius:18px;
+background:var(--row-bg);
+border:1.5px solid rgba(255,255,255,0.08);
+cursor:pointer;
+transition:all 0.25s ease;
+position:relative;
+overflow:hidden;
+}
+
+.battle-card:hover{
+background:var(--row-hover);
+border-color:rgba(255,106,61,0.4);
+transform:scale(1.04);
+box-shadow:0 8px 24px rgba(255,106,61,0.15);
+}
+
+.battle-card .battle-name{
+font-size:18px;
+font-weight:700;
+margin-bottom:6px;
+word-break:break-all;
+}
+
+.battle-card .battle-style{
+font-size:11px;
+color:var(--text2);
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.battle-card .battle-score{
+margin-top:8px;
+font-size:12px;
+font-weight:600;
+}
+
+.battle-card.winner{
+border-color:rgba(20,184,166,0.5);
+background:rgba(20,184,166,0.1);
+animation:battleWin 0.5s ease;
+}
+
+@keyframes battleWin{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1.04)}
+}
+
+.battle-stats{
+font-size:12px;
+color:var(--text2);
+margin-bottom:16px;
+}
+
+/* Pronunciation guide */
+.pronunciation{
+font-size:11px;
+color:var(--text2);
+font-style:italic;
+margin-top:2px;
+}
+
+/* Slot machine animation */
+@keyframes slotSpin{
+0%{transform:translateY(0);opacity:1}
+25%{transform:translateY(-10px);opacity:0.3}
+50%{transform:translateY(10px);opacity:0.3}
+75%{transform:translateY(-5px);opacity:0.7}
+100%{transform:translateY(0);opacity:1}
+}
+.slot-spin .username-text{
+animation:slotSpin 0.4s ease-out;
+}
+
+/* History section */
+.history{
+margin-top:24px;
+position:relative;
+z-index:3;
+}
+
+.history-item{
+display:inline-flex;
+align-items:center;
+gap:6px;
+font-size:12px;
+padding:5px 12px;
+background:rgba(255,255,255,0.06);
+border:0.5px solid rgba(255,255,255,0.1);
+border-radius:100px;
+margin:0 4px 6px 0;
+color:var(--text2);
+cursor:pointer;
+transition:all 0.2s ease;
+font-weight:500;
+}
+
+.history-item:hover{
+background:rgba(255,255,255,0.12);
+color:var(--text);
+transform:scale(1.05);
+}
+
+.history-time{
+font-size:10px;
+opacity:0.6;
+}
+
 </style>
 </head>
 
@@ -1191,6 +1385,12 @@ box-shadow:0 4px 20px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) ins
 <option value="minecraft">Minecraft</option>
 <option value="fortnite">Fortnite</option>
 <option value="roblox">Roblox</option>
+<option value="pirate">Pirate</option>
+<option value="cyberpunk">Cyberpunk</option>
+<option value="cottagecore">Cottagecore</option>
+<option value="space">Space</option>
+<option value="horror">Horror</option>
+<option value="kpop">K-pop</option>
 </select>
 
 <select id="separator" aria-label="Separator">
@@ -1211,6 +1411,8 @@ box-shadow:0 4px 20px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) ins
 <button class="clear" onclick="clearList()" aria-label="Clear list">Clear</button>
 <button class="random-btn" onclick="randomOne()" aria-label="Random username">Random</button>
 <button class="lucky-btn" onclick="luckyOne()" aria-label="Lucky username">Lucky</button>
+<button class="mashup-btn" onclick="mashup()" aria-label="Mashup two styles">Mashup</button>
+<button class="battle-btn" onclick="openBattle()" aria-label="Battle mode">Battle</button>
 <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">Toggle Theme</button>
 
 </div>
@@ -1223,6 +1425,7 @@ box-shadow:0 4px 20px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) ins
 
 <div class="options">
 <label>Numbers <button class="toggle on" id="numToggle" onclick="toggleNumbers()" aria-label="Toggle numbers"></button></label>
+<label>Edgy <button class="toggle" id="edgyToggle" onclick="toggleEdgy()" aria-label="Toggle edgy mode"></button></label>
 <label>Max length <input type="number" id="maxLen" value="20" min="5" max="30" aria-label="Maximum username length"></label>
 <label>
 <button class="export-btn" onclick="exportTXT()" aria-label="Download as TXT">Download TXT</button>
@@ -1277,8 +1480,13 @@ box-shadow:0 4px 20px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) ins
 <div id="favlist"></div>
 </div>
 
+<div class="history" id="historySection">
+<div class="section-title">Username History</div>
+<div id="historyList"></div>
+</div>
+
 <div class="hint">
-<kbd>Space</kbd> generate &middot; <kbd>R</kbd> random &middot; <kbd>L</kbd> lucky &middot; <kbd>C</kbd> clear &middot; <kbd>T</kbd> theme &middot; <kbd>E</kbd> export TXT &middot; <kbd>D</kbd> export CSV
+<kbd>Space</kbd> generate &middot; <kbd>R</kbd> random &middot; <kbd>L</kbd> lucky &middot; <kbd>M</kbd> mashup &middot; <kbd>B</kbd> battle &middot; <kbd>C</kbd> clear &middot; <kbd>T</kbd> theme &middot; <kbd>E</kbd> export TXT &middot; <kbd>D</kbd> export CSV
 </div>
 
 </div>
@@ -1287,6 +1495,14 @@ box-shadow:0 4px 20px rgba(255,106,61,0.15),0 0.5px 0 var(--glass-highlight) ins
 <div class="toast" id="toast"></div>
 
 <script>
+
+// Safe storage wrapper for sandboxed environments
+const storage=(function(){
+let mem={};
+try{localStorage.getItem("_test");return localStorage}catch(e){
+return{getItem:function(k){return mem[k]||null},setItem:function(k,v){mem[k]=String(v)},removeItem:function(k){delete mem[k]}};
+}
+})();
 
 const styles={
 
@@ -1368,12 +1584,43 @@ roblox:{
 adj:["Blox","Mega","Super","Epic","Cool","Pro","Noob","Ultra","Hyper","Power","Royal","Speed","Turbo","Crazy","Happy","Magic","Fire","Ice","Dark","Bright","Gold","Star","Neon","Pixel","Robo"],
 noun:["Player","Builder","Gamer","Master","King","Queen","Lord","Boss","Hero","Ninja","Warrior","Knight","Wizard","Racer","Pilot","Coder","Shark","Tiger","Dragon","Phoenix","Legend","Champion","Titan","Wolf","Storm"],
 maxLen:20
+},
+
+pirate:{
+adj:["Captain","Dread","Salty","Cursed","Rusty","Scarlet","Barnacle","Scurvy","Plunder","Rogue","Cutlass","Crimson","Iron","Storm","Ghostly","Savage","Wicked","Jolly","Black","Golden","Rum","Sunken","Tidal","Mutiny","Corsair"],
+noun:["Beard","Hook","Skull","Parrot","Cannon","Kraken","Anchor","Pirate","Corsair","Buccaneer","Marauder","Raider","Swab","Mate","Captain","Sailor","Treasure","Galleon","Privateer","Scallywag","Bones","Dagger","Reef","Plank","Lagoon"]
+},
+
+cyberpunk:{
+adj:["Neon","Chrome","Cyber","Glitch","Holo","Synth","Wire","Hack","Rogue","Ghost","Null","Void","Pixel","Grid","Flux","Digi","Nano","Surge","Echo","Vapor","Toxic","Razor","Static","Shade","Zero"],
+noun:["Runner","Punk","Jack","Decker","Merc","Blade","Wraith","Agent","Nexus","Chrome","Drone","Ghost","Cipher","Cortex","Frame","Proxy","Shard","Spike","Trace","Sync","Daemon","Helix","Prism","Stryker","Vertex"]
+},
+
+cottagecore:{
+adj:["Mossy","Honey","Clover","Willow","Dewy","Sunny","Meadow","Fern","Berry","Petal","Maple","Hazel","Rowan","Misty","Gentle","Cozy","Rustic","Woodland","Sage","Ivy","Lavender","Thistle","Daisy","Birch","Acorn"],
+noun:["Cottage","Garden","Bloom","Sparrow","Rabbit","Thimble","Basket","Hearth","Brook","Candle","Quilt","Orchard","Clover","Buttercup","Beekeeper","Lamb","Fawn","Wren","Bramble","Foxglove","Meadow","Mushroom","Rosebud","Teacup","Linen"]
+},
+
+space:{
+adj:["Astro","Cosmic","Solar","Lunar","Star","Void","Nebula","Orbit","Galactic","Nova","Hyper","Stellar","Quantum","Zero","Dark","Red","Binary","Plasma","Photon","Ion","Eclipse","Titan","Warp","Comet","Pulsar"],
+noun:["Voyager","Pilot","Ranger","Cosmonaut","Cadet","Explorer","Drifter","Probe","Station","Rover","Shuttle","Nebula","Galaxy","Meteor","Asteroid","Starship","Commander","Admiral","Navigator","Sentinel","Horizon","Singularity","Pulsar","Quasar","Eclipse"]
+},
+
+horror:{
+adj:["Grim","Hollow","Wicked","Pale","Dread","Cursed","Rotting","Silent","Twisted","Sinister","Ghastly","Morbid","Eerie","Creeping","Shadow","Blood","Decay","Lurking","Forsaken","Haunted","Dark","Gloomy","Spectral","Ashen","Malice"],
+noun:["Phantom","Wraith","Ghoul","Reaper","Shade","Specter","Banshee","Crawler","Howler","Stalker","Fiend","Lurker","Haunt","Crypt","Grave","Corpse","Skull","Demon","Terror","Nightmare","Fright","Scream","Whisper","Husk","Revenant"]
+},
+
+kpop:{
+adj:["Star","Dream","Luna","Neon","Pink","Golden","Crystal","Velvet","Cherry","Angel","Honey","Sugar","Cloud","Blossom","Diamond","Glitter","Fairy","Pastel","Shiny","Peach","Mint","Coral","Ruby","Bliss","Silk"],
+noun:["Idol","Star","Light","Beat","Wave","Soul","Heart","Bloom","Spark","Charm","Voice","Dance","Glow","Kiss","Love","Rose","Sky","Wing","Fate","Echo","Dream","Vibe","Flame","Muse","Hope"]
 }
 
 };
 
 let totalGenerated=0;
 let includeNumbers=true;
+let edgyMode=false;
 let allUsernames=[];
 let usernameSet=new Set();
 const MAX_TOTAL=3000;
@@ -1402,6 +1649,12 @@ createParticles();
 function toggleNumbers(){
 includeNumbers=!includeNumbers;
 document.getElementById("numToggle").classList.toggle("on",includeNumbers);
+}
+
+function toggleEdgy(){
+edgyMode=!edgyMode;
+document.getElementById("edgyToggle").classList.toggle("on",edgyMode);
+showToast(edgyMode?"Edgy mode ON xX_Xx":"Edgy mode OFF");
 }
 
 function scoreUsername(name){
@@ -1493,6 +1746,10 @@ username=adj+sep+noun+(num!==""?(sep+num):"");
 if(prefix) username=prefix+sep+username;
 if(suffix) username=username+sep+suffix;
 
+if(edgyMode){
+username="xX_"+username+"_Xx";
+}
+
 if(username.length>maxLen){
 username=username.substring(0,maxLen);
 }
@@ -1500,12 +1757,14 @@ username=username.substring(0,maxLen);
 if(usernameSet.has(username)){i--;continue;}
 usernameSet.add(username);
 allUsernames.push(username);
+addToHistory(username,mode);
 
 let s=scoreUsername(username);
 
 let row=document.createElement("div");
-row.className="row";
+row.className="row slot-spin";
 if(i<50) row.style.animationDelay=i*15+"ms";
+setTimeout(function(){row.classList.remove("slot-spin")},500+i*15);
 
 let leftDiv=document.createElement("div");
 leftDiv.className="row-left";
@@ -1526,8 +1785,17 @@ void row.offsetWidth;
 row.classList.add("copy-pulse");
 });
 
+let nameWrap=document.createElement("div");
+nameWrap.style.minWidth="0";
+nameWrap.appendChild(nameSpan);
+
+let pronun=document.createElement("div");
+pronun.className="pronunciation";
+pronun.textContent=getPronunciation(username);
+nameWrap.appendChild(pronun);
+
 leftDiv.appendChild(scoreSpan);
-leftDiv.appendChild(nameSpan);
+leftDiv.appendChild(nameWrap);
 
 if(s>=9){
 let badge=document.createElement("span");
@@ -1781,7 +2049,7 @@ renderFav();
 }
 
 function save(name,btn){
-let fav=JSON.parse(localStorage.getItem("fav2"))||[];
+let fav=JSON.parse(storage.getItem("fav2"))||[];
 if(fav.some(function(f){return f.name===name})){
 showToast("Already a favorite!");
 return;
@@ -1793,7 +2061,7 @@ if(["gamer","fantasy","minecraft","fortnite","roblox"].includes(mode)) col="gami
 else if(["instagram","tiktok","aesthetic"].includes(mode)) col="social";
 else if(["tech","developer"].includes(mode)) col="dev";
 fav.push({name:name,col:col});
-localStorage.setItem("fav2",JSON.stringify(fav));
+storage.setItem("fav2",JSON.stringify(fav));
 if(btn){
 btn.textContent="Saved!";
 btn.style.opacity="0.6";
@@ -1803,21 +2071,21 @@ showToast("Saved: "+name);
 }
 
 function removeFav(name){
-let fav=JSON.parse(localStorage.getItem("fav2"))||[];
+let fav=JSON.parse(storage.getItem("fav2"))||[];
 fav=fav.filter(function(f){return f.name!==name});
-localStorage.setItem("fav2",JSON.stringify(fav));
+storage.setItem("fav2",JSON.stringify(fav));
 renderFav();
 showToast("Removed: "+name);
 }
 
 function renderFav(){
-let fav=JSON.parse(localStorage.getItem("fav2"))||[];
+let fav=JSON.parse(storage.getItem("fav2"))||[];
 // Migrate old format
-let oldFav=JSON.parse(localStorage.getItem("fav"))||[];
+let oldFav=JSON.parse(storage.getItem("fav"))||[];
 if(oldFav.length>0&&fav.length===0){
 fav=oldFav.map(function(n){return{name:n,col:"all"}});
-localStorage.setItem("fav2",JSON.stringify(fav));
-localStorage.removeItem("fav");
+storage.setItem("fav2",JSON.stringify(fav));
+storage.removeItem("fav");
 }
 
 let filtered=currentCollection==="all"?fav:fav.filter(function(f){return f.col===currentCollection});
@@ -1922,7 +2190,7 @@ showToast("Copied comma-separated");
 function toggleTheme(){
 
 document.body.classList.toggle("light");
-localStorage.setItem("theme",document.body.classList.contains("light"));
+storage.setItem("theme",document.body.classList.contains("light"));
 let mode=document.body.classList.contains("light")?"Light":"Dark";
 showToast(mode+" mode");
 
@@ -1930,7 +2198,7 @@ showToast(mode+" mode");
 
 function loadTheme(){
 
-let t=localStorage.getItem("theme");
+let t=storage.getItem("theme");
 if(t==="true") document.body.classList.add("light");
 
 }
@@ -2003,6 +2271,8 @@ if(e.key==="c"||e.key==="C"){if(!e.metaKey&&!e.ctrlKey)clearList()}
 if(e.key==="t"||e.key==="T")toggleTheme();
 if(e.key==="r"||e.key==="R")randomOne();
 if(e.key==="l"||e.key==="L")luckyOne();
+if(e.key==="m"||e.key==="M")mashup();
+if(e.key==="b"||e.key==="B")openBattle();
 if(e.key==="e"||e.key==="E")exportTXT();
 if(e.key==="d"||e.key==="D")exportCSV();
 });
@@ -2113,11 +2383,11 @@ renderTrending();
 
 // Auto-save session
 window.addEventListener("beforeunload",function(){
-localStorage.setItem("lastUsernames",JSON.stringify(allUsernames));
+storage.setItem("lastUsernames",JSON.stringify(allUsernames));
 });
 
 // Restore last session
-let savedSession=JSON.parse(localStorage.getItem("lastUsernames")||"[]");
+let savedSession=JSON.parse(storage.getItem("lastUsernames")||"[]");
 if(savedSession.length>0){
 allUsernames=savedSession;
 usernameSet=new Set(savedSession);
@@ -2142,6 +2412,208 @@ showToast("Shared username: "+shared);
 document.getElementById("rateInput").value=shared;
 }
 })();
+
+// --- Pronunciation Guide ---
+function getPronunciation(name){
+// Strip edgy wrapping and separators, split into camelCase/separator parts
+let clean=name.replace(/^xX_/,"").replace(/_Xx$/,"");
+let parts=clean.split(/[_\-.]/).filter(Boolean);
+if(parts.length===1){
+// Try splitting camelCase
+parts=clean.replace(/([a-z])([A-Z])/g,"$1 $2").replace(/([A-Z]+)([A-Z][a-z])/g,"$1 $2").split(/\s+/);
+}
+// Strip trailing numbers from last part
+parts=parts.map(function(p){return p.replace(/\d+$/,"")}).filter(Boolean);
+return parts.map(function(p){return phonetic(p)}).join(" · ");
+}
+
+function phonetic(word){
+let w=word.toLowerCase();
+// Common phonetic overrides
+let map={
+"cyber":"SY-ber","quantum":"KWON-tum","pixel":"PIK-sel","neon":"NEE-on","glitch":"GLICH",
+"phantom":"FAN-tum","rogue":"ROHG","vortex":"VOR-teks","nebula":"NEB-yoo-lah",
+"azure":"AZH-er","phoenix":"FEE-niks","wraith":"RAYTH","valkyrie":"val-KEER-ee",
+"mjolnir":"MYOL-neer","sigurd":"SIG-urd","einherjar":"ayn-HAIR-yar","draugr":"DROWG-r",
+"kitsune":"kit-SOO-neh","shinobi":"shih-NOH-bee","samurai":"SAM-oo-rye",
+"oni":"OH-nee","tengu":"TEN-goo","sakura":"sah-KOO-rah","ronin":"ROH-nin",
+"aesthetic":"es-THET-ik","corsair":"KOR-sair","daemon":"DEE-mon","praetor":"PREE-tor",
+"centurion":"sen-TOOR-ee-on","imperator":"im-peh-RAH-tor","solaris":"soh-LAR-is",
+"cosmonaut":"KOZ-moh-nawt","quasar":"KWAY-zar","banshee":"BAN-shee","revenant":"REV-eh-nant",
+"ghoul":"GOOL","specter":"SPEK-ter","arcane":"ar-KAYN","seraph":"SAIR-af"
+};
+if(map[w]) return map[w];
+// Simple fallback: capitalize
+return word.charAt(0).toUpperCase()+word.slice(1).toLowerCase();
+}
+
+// --- Mashup (combine two styles) ---
+function mashup(){
+let keys=Object.keys(styles);
+let a=keys[Math.floor(Math.random()*keys.length)];
+let b=keys[Math.floor(Math.random()*keys.length)];
+while(b===a) b=keys[Math.floor(Math.random()*keys.length)];
+let adj=random(styles[a].adj);
+let noun=random(styles[b].noun);
+let sep=document.getElementById("separator").value;
+let num=includeNumbers?Math.floor(Math.random()*999):"";
+let username=adj+sep+noun+(num!==""?(sep+num):"");
+if(edgyMode) username="xX_"+username+"_Xx";
+navigator.clipboard.writeText(username);
+showToast("Mashup ["+a+" × "+b+"]: "+username+" (copied!)");
+spawnConfetti(window.innerWidth/2,window.innerHeight/2);
+addToHistory(username,a+"×"+b);
+}
+
+// --- Battle Mode ---
+let battleWins=JSON.parse(storage.getItem("battleWins")||"0");
+let battleTotal=JSON.parse(storage.getItem("battleTotal")||"0");
+
+function openBattle(){
+let keys=Object.keys(styles);
+let s1key=keys[Math.floor(Math.random()*keys.length)];
+let s2key=keys[Math.floor(Math.random()*keys.length)];
+let sep=["","_","-"][Math.floor(Math.random()*3)];
+let u1=random(styles[s1key].adj)+sep+random(styles[s1key].noun);
+let u2=random(styles[s2key].adj)+sep+random(styles[s2key].noun);
+let sc1=scoreUsername(u1);
+let sc2=scoreUsername(u2);
+
+let modal=document.createElement("div");
+modal.className="battle-modal";
+modal.addEventListener("click",function(e){if(e.target===modal)modal.remove()});
+
+let panel=document.createElement("div");
+panel.className="battle-panel";
+
+let h3=document.createElement("h3");
+h3.textContent="Username Battle!";
+panel.appendChild(h3);
+
+let vs=document.createElement("div");
+vs.className="battle-vs";
+vs.textContent="Pick the better username — your stats are tracked!";
+panel.appendChild(vs);
+
+let cards=document.createElement("div");
+cards.className="battle-cards";
+
+function makeCard(name,style,score){
+let card=document.createElement("div");
+card.className="battle-card";
+let nm=document.createElement("div");
+nm.className="battle-name";
+nm.style.color=score>=7?"#2dd4bf":score>=4?"#fbbf24":"#f87171";
+nm.textContent=name;
+let st=document.createElement("div");
+st.className="battle-style";
+st.textContent=style;
+let sc=document.createElement("div");
+sc.className="battle-score";
+sc.textContent="Score: "+score+"/10";
+let pron=document.createElement("div");
+pron.className="pronunciation";
+pron.textContent=getPronunciation(name);
+card.appendChild(nm);
+card.appendChild(st);
+card.appendChild(sc);
+card.appendChild(pron);
+card.addEventListener("click",function(){
+battleTotal++;
+card.classList.add("winner");
+navigator.clipboard.writeText(name);
+storage.setItem("battleTotal",battleTotal);
+showToast("You picked: "+name+" (copied!)");
+spawnConfetti(window.innerWidth/2,window.innerHeight/3);
+addToHistory(name,style+" (battle pick)");
+setTimeout(function(){modal.remove()},800);
+});
+return card;
+}
+
+cards.appendChild(makeCard(u1,s1key,sc1));
+
+let vsText=document.createElement("div");
+vsText.style.display="flex";
+vsText.style.alignItems="center";
+vsText.style.fontSize="20px";
+vsText.style.fontWeight="800";
+vsText.style.color="var(--text2)";
+vsText.textContent="VS";
+cards.appendChild(vsText);
+
+cards.appendChild(makeCard(u2,s2key,sc2));
+panel.appendChild(cards);
+
+let stats=document.createElement("div");
+stats.className="battle-stats";
+stats.textContent="Battles played: "+battleTotal;
+panel.appendChild(stats);
+
+let closeBtn=document.createElement("button");
+closeBtn.className="close-modal";
+closeBtn.textContent="Skip";
+closeBtn.addEventListener("click",function(){modal.remove()});
+panel.appendChild(closeBtn);
+
+modal.appendChild(panel);
+document.body.appendChild(modal);
+}
+
+// --- Username History ---
+function addToHistory(username,style){
+let hist=JSON.parse(storage.getItem("usernameHistory")||"[]");
+hist.unshift({name:username,style:style,time:Date.now()});
+if(hist.length>50) hist=hist.slice(0,50);
+storage.setItem("usernameHistory",JSON.stringify(hist));
+renderHistory();
+}
+
+function renderHistory(){
+let hist=JSON.parse(storage.getItem("usernameHistory")||"[]");
+let box=document.getElementById("historyList");
+if(!box) return;
+if(hist.length===0){
+box.innerHTML='<div class="no-fav">No history yet</div>';
+return;
+}
+box.innerHTML="";
+// Show last 15
+let show=hist.slice(0,15);
+show.forEach(function(h){
+let item=document.createElement("span");
+item.className="history-item";
+
+let name=document.createTextNode(h.name);
+item.appendChild(name);
+
+let time=document.createElement("span");
+time.className="history-time";
+let ago=timeAgo(h.time);
+time.textContent=" "+ago;
+item.appendChild(time);
+
+item.addEventListener("click",function(){
+navigator.clipboard.writeText(h.name);
+showToast("Copied: "+h.name);
+});
+box.appendChild(item);
+});
+}
+
+function timeAgo(ts){
+let diff=Date.now()-ts;
+let s=Math.floor(diff/1000);
+if(s<60) return "just now";
+let m=Math.floor(s/60);
+if(m<60) return m+"m ago";
+let h=Math.floor(m/60);
+if(h<24) return h+"h ago";
+let d=Math.floor(h/24);
+return d+"d ago";
+}
+
+renderHistory();
 
 </script>
 
